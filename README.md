@@ -1,0 +1,31 @@
+Hybrid XML Parser
+=================
+Класс для разбора больших XML-файлов без загрузки их в память.
+Схема работы проста: файл проходится XMLReader'ом, для каждого интересующего нас элемента XML вызывается
+предварительно заданный обработчик, которому в качестве аргумента передаётся содержимое этого элемента
+в виде SimpleXMLElement.
+
+Выглядит это как-то так:
+
+```php
+<?php
+	$parser = new HybridXMLParser;
+	$parser
+		// Вешаем обработчик на путь в XML
+		->bind('/FictionBook/description/title-info/author', function($author, $parser) {
+			// author попадает сюда в виде SimpleXMLElement
+			print_r($author);
+		})
+		// И ещё один
+		->bind('/FictionBook/description/title-info/translator', function($translator, $parser) {
+			print_r($translator);
+			// Так можно немедленно завершить парсинг
+			$parser->stop(); 
+		})
+		// Запускаем
+		->process('somebook.fb2')
+		->process('anotherbook.fb2');
+
+```
+
+В качестве обработчика можно указывать всё, для чего is_callable() возвращает true.
