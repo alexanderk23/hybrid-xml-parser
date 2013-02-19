@@ -1,9 +1,9 @@
 {
-    "name": "alexanderk23/HybridXMLParser",
+    "name": "alexanderk23/hybrid-xml-parser",
     "type": "library",
     "description": "Simple class to parse huge XML files in a memory-eficient way",
     "keywords": ["xml","parser"],
-    "homepage": "http://github.com/alexanderk23/HybridXMLParser",
+    "homepage": "http://github.com/alexanderk23/hybrid-xml-parser",
     "license": "Public Domain",
     "authors": [
         {
