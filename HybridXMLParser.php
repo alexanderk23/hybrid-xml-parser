@@ -5,7 +5,7 @@
 	* Class to parse huge XML files in a memory-efficient way.
 	*
 	* @author Alexander Kovalenko <alexanderk23@gmail.com>
-	* @link http://github.com/alexanderk23/HybridXMLParser
+	* @link https://github.com/alexanderk23/hybrid-xml-parser
 	* @license Public Domain
 	*/
 
