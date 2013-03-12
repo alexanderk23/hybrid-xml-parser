@@ -12,12 +12,11 @@ Hybrid XML Parser
 	$parser = new HybridXMLParser;
 	$parser
 		// Вешаем обработчик на путь в XML
-		->bind('/FictionBook/description/title-info/author', function($author, $parser) {
-			// author попадает сюда в виде SimpleXMLElement
+		->bind('/FictionBook/description/title-info/author', function(\SimpleXMLElement $author, $parser) {
 			print_r($author);
 		})
 		// И ещё один
-		->bind('/FictionBook/description/title-info/translator', function($translator, $parser) {
+		->bind('/FictionBook/description/title-info/translator', function(\SimpleXMLElement $translator, $parser) {
 			print_r($translator);
 			// Так можно немедленно завершить парсинг
 			$parser->stop(); 
