@@ -1,15 +1,15 @@
 {
-    "name": "alexanderk23/hybrid-xml-parser",
+    "name": "badlamer/symfony-hybrid-xml-parser",
     "type": "library",
     "description": "Simple class to parse huge XML files in a memory-efficient way",
     "keywords": ["xml","parser"],
-    "homepage": "http://github.com/alexanderk23/hybrid-xml-parser",
+    "homepage": "http://github.com/badlamer/hybrid-xml-parser",
     "license": "Public Domain",
     "authors": [
         {
-            "name": "alexanderk23",
-            "email": "alexanderk23@gmail.com",
-            "homepage": "http://github.com/alexanderk23",
+            "name": "badlamer",
+            "email": "bad1lamer@gmail.com",
+            "homepage": "http://github.com/badlamer",
             "role": "Developer"
         }
     ],
