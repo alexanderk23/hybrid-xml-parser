@@ -9,9 +9,7 @@
 	* @license Public Domain
 	*/
 
-	if(!defined('LIBXML_PARSEHUGE')) {
-		define(LIBXML_PARSEHUGE, 1<<19);
-	}
+	use Symfony\Component\DomCrawler\Crawler;
 
 	class HybridXMLParserException extends \Exception {}
 
@@ -22,15 +20,17 @@
 			$uri,
 			$path,
 			$stop,
+			$encoding,
 			$pathListeners = array(),
 			$ignoreCase = false;
 
                 /**
                 * @param boolean $ignoreCase Ignore XML tags case
                 */
-		public function __construct($ignoreCase = true) {
+		public function __construct($ignoreCase = true, $encoding = 'UTF-8') {
 			$this->xml = new \XMLReader;
 			$this->ignoreCase = $ignoreCase;
+			$this->encoding = $encoding;
 		}
 
 		protected function convertCase($s) {
@@ -82,10 +82,9 @@
 
 		protected function notifyListener($path) {
 			if(isset($this->pathListeners[$path])) {
-				$this->pathListeners[$path](
-					new \SimpleXMLElement($this->xml->readOuterXML(), LIBXML_COMPACT | LIBXML_NOCDATA),
-					$this
-				);
+				$node = new Crawler;
+				$node->addXmlContent($this->xml->readOuterXML(), $this->encoding);
+				$this->pathListeners[$path]($node, $this);
 			}
 
 			return $this;
