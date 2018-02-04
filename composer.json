@@ -4,7 +4,7 @@
     "description": "Simple class to parse huge XML files in a memory-efficient way",
     "keywords": ["xml","parser"],
     "homepage": "http://github.com/alexanderk23/hybrid-xml-parser",
-    "license": "Public Domain",
+    "license": "WTFPL",
     "authors": [
         {
             "name": "alexanderk23",
